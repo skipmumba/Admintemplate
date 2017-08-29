@@ -1,0 +1,35 @@
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ทีม 1</th>
+      <th>ทีม 2</th>
+	 <th>หมวดเกม</th>
+      <th>เวลาการแข่งขัน</th>
+      <th>สถานะ</th>
+      <th>จัดการ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let match of getAllmatch;let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{match.team_1}}</td>
+      <td>{{match.team_2}}</td>
+      <td>{{match.cat_name}}</td>
+      <td>{{match.day}} / {{match.month}} / {{match.year}} / {{match.time}}</td>
+      <td>{{match.team_1}}</td>
+      <td>{{match.team_1}}</td>
+    </tr>
+
+  </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li *ngFor="let x of numbers;let perPagi = index" class="page-item" (click)="nextPage(perPagi+1)"><a class="page-link">{{perPagi+1}}</a></li>
+
+  
+  </ul>
+</nav>
+
+
+<hr>

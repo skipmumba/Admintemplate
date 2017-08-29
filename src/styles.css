@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.mother-layout
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.input-group
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.card
+{
+	margin-bottom:20px;
+}

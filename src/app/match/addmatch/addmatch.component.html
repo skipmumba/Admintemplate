@@ -1,0 +1,75 @@
+				
+				<div class="card">
+					<form ngNoForm autocomplete="off" action="{{hostphp}}/backend/addmatch/addgame" method="POST">
+					<h4 class="card-header">เพิ่มเกมแข่งขัน</h4>
+					<div class="card-body">
+
+					
+	
+					<div  (mouseleave)="searchShow1=false">
+						<div class="input-group">
+							<span class="input-group-addon">ทีม 1</span>
+							<input (keydown)="searchShow1=true" name="nameTeam1" 
+							[(ngModel)]="nameTeam1" type="text" placeholder="เลือกทีม" class="form-control" required >		
+						</div>
+						<ul *ngIf="searchShow1">
+					         <li *ngFor = "let item of teamData |filter:nameTeam1" 
+					         (click)="selectTeam(item.team_name,item.team_imageurl,'team1')">{{item.team_name}}</li>
+					     </ul>
+					     <img src="{{picTeam1}}" class="rounded mx-auto d-block" >
+					     <input name="picTeam1" [(ngModel)]="picTeam1" value="{{picTeam1}}" type="hidden" placeholder="url" class="form-control">
+
+					</div>
+
+					
+						
+						
+					
+					<div  (mouseleave)="searchShow2=false">
+						<div class="input-group">
+							<span class="input-group-addon">ทีม 2</span>
+							<input (keydown)="searchShow2=true" name="nameTeam2" 
+							[(ngModel)]="nameTeam2" type="text" placeholder="ชื่อทีม" class="form-control" >
+						</div>
+						<ul *ngIf="searchShow2">
+					         <li *ngFor = "let items of teamData |filter:nameTeam2" 
+					         (click)="selectTeam(items.team_name,items.team_imageurl,'team2')">{{items.team_name}}</li>
+					     </ul>
+					     <img src="{{picTeam2}}" class="rounded mx-auto d-block" >
+					     <input name="picTeam2" value="{{picTeam2}}" type="hidden" placeholder="url" class="form-control" >
+					</div>
+
+				
+
+						
+
+						<h4>เวลาการแข่งขัน</h4>
+
+						<div class="input-group">
+							<span class="input-group-addon">วัน</span>
+							<input name="day" type="text" class="form-control" placeholder="e.g. 1" >
+							<span class="input-group-addon">เดือน </span>
+							<input  name="month" type="text" class="form-control" placeholder="e.g. 06" >
+
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">ปี </span>
+							<input name="year" type="text" class="form-control" placeholder="e.g. 2017" >
+							<span class="input-group-addon">เวลา </span>
+							<input name="time" type="text" class="form-control" placeholder="e.g. 15:30" >
+
+						</div>
+						<div class="form-group">
+						  	<label for="exampleFormControlSelect1"><h4>หมวดเกม</h4></label>
+						  	<select class="form-control" name="catid">
+						    		<option value="{{catdata.cat_id}}*-*{{catdata.cat_name}}" 
+						    		*ngFor="let catdata of getCatdata;let i = index ">{{catdata.cat_name}}</option>
+						  	</select>
+						</div>
+
+						<input type="submit" class="btn btn-success btn-lg btn-block" value="ยืนยัน">
+					</div>
+					</form>
+				</div>
+		
+				

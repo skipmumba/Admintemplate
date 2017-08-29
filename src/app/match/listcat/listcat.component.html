@@ -1,0 +1,25 @@
+<div class="card">
+	<h4 class="card-header">หมวดเกมทั้งหมด</h4>
+	<div class="card-body">
+		<table class="table">
+		  	<thead>
+		    		<tr>
+		      		<th>#</th>
+		      		<th>ชื่อ</th>
+		      		<th>จัดการ</th>
+		    		</tr>
+		  	</thead>
+		  	<tbody>
+
+
+
+		    		<tr *ngFor="let catInfo of getCatdata;let i = index">
+		      		<th scope="row">{{i+1}}</th>
+		      		<td>{{catInfo.cat_name}}</td>
+		      		<td><a href="{{hostphp}}/bet/backend/addmatch/del_cat/{{catInfo.cat_id}}"><button type="button" class="btn btn-info">ลบ</button></a></td>
+		    		</tr>
+		    	
+		  	</tbody>
+		</table>
+	</div>
+</div>
