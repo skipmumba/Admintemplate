@@ -1,12 +1,11 @@
-<table class="table table-inverse">
-  <thead>
+<table class="table ">
+  <thead class="thead-inverse">
     <tr>
       <th>#</th>
       <th>ทีม 1</th>
       <th>ทีม 2</th>
-	 <th>หมวดเกม</th>
+	    <th>หมวดเกม</th>
       <th>เวลาการแข่งขัน</th>
-      <th>สถานะ</th>
       <th>จัดการ</th>
     </tr>
   </thead>
@@ -17,8 +16,9 @@
       <td>{{match.team_2}}</td>
       <td>{{match.cat_name}}</td>
       <td>{{match.day}} / {{match.month}} / {{match.year}} / {{match.time}}</td>
-      <td>{{match.team_1}}</td>
-      <td>{{match.team_1}}</td>
+      <td>
+          <button type="button" (click)="handleMatch(match.match_id)" class="btn btn-info">จัดการ</button>
+      </td>
     </tr>
 
   </tbody>

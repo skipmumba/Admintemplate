@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule ,BsDropdownModule,TabsModule   } from 'ngx-bootstrap';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule , ReactiveFormsModule}   from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from "@angular/common";
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { HttpModule }    from '@angular/http';
+import { ChartsModule } from 'ng2-charts';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
@@ -18,6 +19,10 @@ import { AddmatchComponent } from './match/addmatch/addmatch.component';
 import { ListcatComponent } from './match/listcat/listcat.component';
 import { ListallgameComponent } from './match/listallgame/listallgame.component';
 import { AddteamComponent } from './match/addteam/addteam.component';
+import { PrivateloginComponent } from './privatelogin/privatelogin.component';
+import { ManagematchComponent } from './match/managematch/managematch.component';
+
+import { MatchmanageService  } from './service/match/matchmanage.service'
 
 
 @NgModule({
@@ -30,16 +35,20 @@ import { AddteamComponent } from './match/addteam/addteam.component';
     ListcatComponent,
     ListallgameComponent,
     AddteamComponent,
+    PrivateloginComponent,
+    ManagematchComponent,
   ],
   imports: [
     BrowserModule,AlertModule .forRoot(),BsDropdownModule.forRoot(),TabsModule.forRoot(),
      routing,
+     ReactiveFormsModule,
      CommonModule,
+     ChartsModule,
      Ng2SearchPipeModule,
      FormsModule,
 	HttpModule,
   ],
-  providers: [],
+  providers: [MatchmanageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

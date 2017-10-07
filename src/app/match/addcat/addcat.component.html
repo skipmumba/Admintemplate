@@ -2,14 +2,14 @@
 	<h4 class="card-header">เพิ่มหมวดเกม</h4>
 	<div class="card-body">
 		<form ngNoForm action="{{hostphp}}/backend/addmatch/addcat" method="POST">
-			<div class="input-group">
-				<span class="input-group-addon">ชื่อหมวดหมู่</span>
-				<input type="text" class="form-control" required name="catname">
-				<span class="input-group-btn">
-					<input class="btn btn-success" type="submit" value="ยืนยัน">
-				</span>
+		
+				<input placeholder="ชื่อหมวด" type="text" class="form-control" required name="catname"><br>
+				<input placeholder="ลิ้งรูปภาพ" type="text" class="form-control" required name="catimage">
+				
+				<br><input class="btn btn-success" type="submit" value="ยืนยัน">
+				
 				<input type="hidden" name="hostng" value="{{hostng}}">
-			</div>
+			
 		</form>
 	</div>
 </div>

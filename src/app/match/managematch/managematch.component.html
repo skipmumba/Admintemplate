@@ -1,0 +1,144 @@
+<div class="wrap-manangeMatch d-flex justify-content-center  fixed-top h-100" *ngIf="_matchManage.loadSpin">
+	<div class=" align-self-center">		
+		<div class="cssload-container">
+			<div class="spinner">
+			  <div class="bounce1"></div>
+			  <div class="bounce2"></div>
+			  <div class="bounce3"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrap-manangeMatch d-flex justify-content-center  fixed-top h-100" *ngIf="_matchManage.show">
+	<div class="child-mamage w-50 h-50 p-3">
+		<div class="card">
+  			<div class="card-header">
+			   จัดการ
+			   	<button type="button" (click)="_matchManage.hideManageMatch()" class="close" aria-label="Close">
+				  	<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		  	<div class="card-body">
+		  		<form ngNoForm action="{{hostphp}}/backend/managematch/update_match?time={{random}}" method="POST">
+		  			<div class="w-50 float-left">
+
+		  			<div (mouseleave)="_matchManage.searchShow1=false"> 
+		  				
+		  				<input type="hidden"  name="matchId" [(ngModel)]="_matchManage.matchDetail.matchID">
+			  			<div class="input-group" >
+					  		<span class="input-group-addon" id="basic-addon1">ทีม 1 </span>
+					  		<input type="text" (keydown)="_matchManage.searchShow1=true" [(ngModel)]="_matchManage.nameTeam1" value="{{_matchManage.matchDetail.name1}}" class="form-control"  name="team1"
+					  		placeholder="Username">
+						</div>
+						<ul *ngIf="_matchManage.searchShow1">
+							<li *ngFor = "let item of teamData |filter:_matchManage.nameTeam1" 
+							(click)="_matchManage.selectTeam(item.team_name,item.team_imageurl,'team1')">{{item.team_name}}</li>
+						</ul>
+						<div style="text-align: center;">					
+							<img src="{{_matchManage.picTeam1}}"  class="rounded" width="100">
+							 <input name="picTeam1" [(ngModel)]="_matchManage.picTeam1" type="hidden">
+						</div>
+
+		  			</div>
+
+		  			<div (mouseleave)="_matchManage.searchShow2=false">
+		  				
+						<div class="input-group">
+						  	<span class="input-group-addon" id="basic-addon1">ทีม 2</span>
+						  	<input type="text" (keydown)="_matchManage.searchShow2=true" name="team2" [(ngModel)]="_matchManage.nameTeam2" value="{{_matchManage.matchDetail.name2}}" class="form-control" 
+						  		placeholder="Username">
+						</div>
+						<ul *ngIf="_matchManage.searchShow2">
+							<li *ngFor = "let item of teamData |filter:_matchManage.nameTeam2" 
+							(click)="_matchManage.selectTeam(item.team_name,item.team_imageurl,'team2')">{{item.team_name}}</li>
+						</ul>
+						<div style="text-align: center;">					
+							<img src="{{_matchManage.picTeam2}}"  class="rounded" width="100">
+							 <input name="picTeam2" [(ngModel)]="_matchManage.picTeam2" type="hidden">
+						</div>
+
+		  			</div>
+		  			<br>
+					หมวดเกม
+					<select class="custom-select" #t name="catID" 
+					[ngModel]="_matchManage.matchDetail.catID">
+					  	<option  value="{{catdata.cat_id}}" 
+						    		*ngFor="let catdata of getCatdata;" 
+						    		[selected]="catdata.cat_id == _matchManage.matchDetail.catID" >
+						    			{{catdata.cat_name}}
+						</option>
+					</select><br>
+					<div class="input-group">
+						<span class="input-group-addon">วัน</span>
+						<input name="day" type="text" class="form-control" placeholder="e.g. 1" 
+						[(ngModel)]="_matchManage.matchDetail.day">
+						<span class="input-group-addon">เดือน </span>
+						<input  name="month" type="text" class="form-control" placeholder="e.g. 06"
+						[(ngModel)]="_matchManage.matchDetail.month">
+					</div>
+					
+					<div class="input-group">
+						<span class="input-group-addon">ปี </span>
+						<input name="year" type="text" [(ngModel)]="_matchManage.matchDetail.year" class="form-control" 
+						placeholder="e.g. 2017" >
+						<span class="input-group-addon">เวลา </span>
+						<input name="time" type="text" class="form-control" placeholder="e.g. 15:30" 
+						[(ngModel)]="_matchManage.matchDetail.time">
+					</div>
+					
+					<div class="input-group">
+					  	<span class="input-group-addon" id="basic-addon1">สถานะ</span>
+					  	<input name="statusgame" type="text" class="form-control"  readonly>
+					</div>
+
+					กำหนดผู้ชนะ
+					<select class=" form-control" name="winner" [(ngModel)]="winner">
+					  	<option selected >เลือก</option>
+					  	<option value="1">{{_matchManage.matchDetail.name1}}</option>
+					  	<option value="2">{{_matchManage.matchDetail.name2}}</option>
+					</select><br><br>
+					<div class="alert alert-danger" role="alert">
+					  	หากกำหนดผู้ชนะแล้วจะไม่สามารถยกเลิกการแข่งขันได้
+					</div>
+
+
+					<div>
+						<input type="submit" class="btn btn-success float-left" value="อัปเดต">
+						<button type="button" class="btn btn-danger float-right"><a href="{{_matchManage.hostphp}}/backend/managematch/del_match/{{_matchManage.matchDetail.matchID}}" style="color:#FFF">ยกเลิกการแข่งขัน</a></button>			
+					</div>
+		  		
+		  			</div>
+		   		</form>	
+		  		<div class="w-50 float-right">
+		  			<div class="subject-donut">	  				
+		  				จำนวนคน
+		  			</div>
+		  			<div style="display: block;padding: 10px">
+					  <canvas  baseChart 
+					              [data]="_matchManage.doughnutChartData"
+					              [labels]="_matchManage.doughnutChartLabels"
+					              [chartType]="_matchManage.doughnutChartType"[colors]="_matchManage.colors" ></canvas>
+					</div>
+					<div class="subject-donut">	  				
+		  				รวม <b>{{_matchManage.matchDetail.sumpeople}}</b>
+		  			</div>
+		  			<hr>
+					<div class="subject-donut">
+						จำนวนเงิน
+						
+					</div>
+					<div style="display: block;padding: 10px">
+					  <canvas  baseChart 
+					              [data]="_matchManage.chartPriceData"
+					              [labels]="_matchManage.chartPriceLabel"
+					              [chartType]="_matchManage.chartPriceType"[colors]="_matchManage.colors" ></canvas>
+					</div>
+					<div class="subject-donut">	  				
+		  				รวม <b>{{_matchManage.matchDetail.sumprice}}</b>
+		  			</div>
+		  		</div>
+
+		  	</div>
+		</div>
+	</div>
+</div>
