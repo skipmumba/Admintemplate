@@ -17,7 +17,10 @@ export class MatchmanageService {
   	nameTeam2:any;
   	picTeam2:any;
 
-
+  	price1:number;
+  	price2:number;
+  	sumprice:number;
+  	sumpeople:number;
 	doughnutChartLabels:string[] = [];
  	doughnutChartData:number[] = [];
   	doughnutChartType:string = 'doughnut';

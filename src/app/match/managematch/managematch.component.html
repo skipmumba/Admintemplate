@@ -91,7 +91,7 @@
 					  	<input name="statusgame" type="text" class="form-control"  readonly>
 					</div>
 
-					กำหนดผู้ชนะ
+					กำหนดผู้ชนะ 
 					<select class=" form-control" name="winner" [(ngModel)]="winner">
 					  	<option selected >เลือก</option>
 					  	<option value="1">{{_matchManage.matchDetail.name1}}</option>
@@ -104,7 +104,7 @@
 
 					<div>
 						<input type="submit" class="btn btn-success float-left" value="อัปเดต">
-						<button type="button" class="btn btn-danger float-right"><a href="{{_matchManage.hostphp}}/backend/managematch/del_match/{{_matchManage.matchDetail.matchID}}" style="color:#FFF">ยกเลิกการแข่งขัน</a></button>			
+						<button type="button" class="btn btn-danger float-right"><a target="_blank" href="{{_matchManage.hostphp}}/backend/managematch/del_match/{{_matchManage.matchDetail.matchID}}" style="color:#FFF">ยกเลิกการแข่งขัน</a></button>			
 					</div>
 		  		
 		  			</div>
@@ -134,7 +134,7 @@
 					              [chartType]="_matchManage.chartPriceType"[colors]="_matchManage.colors" ></canvas>
 					</div>
 					<div class="subject-donut">	  				
-		  				รวม <b>{{_matchManage.matchDetail.sumprice}}</b>
+		  				รวม <b>{{_matchManage.sumprice}}</b>
 		  			</div>
 		  		</div>
 

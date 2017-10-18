@@ -59,6 +59,20 @@ export class ListallgameComponent implements OnInit {
         this._manageMatch.picTeam1 =  data.pic1
         this._manageMatch.nameTeam2 = data.name2
         this._manageMatch.picTeam2 =  data.pic2
+        this._manageMatch.picTeam2 =  data.pic2
+        this._manageMatch.sumprice = parseInt(data.price1)+parseInt(data.price2)
+        if(data.price1 > 1 )
+        {
+           this._manageMatch.sumprice -=1; 
+        }
+        if(data.price2 > 1)
+        {
+           this._manageMatch.sumprice -=1; 
+        }
+        if(this._manageMatch.sumprice == 2)
+        {
+          this._manageMatch.sumprice = 0
+        }
         setTimeout(()=>{
           this._manageMatch.loadSpin = false
           this._manageMatch.showManageMatch() // show form edit

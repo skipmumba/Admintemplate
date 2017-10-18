@@ -30,7 +30,6 @@ export class ManagematchComponent implements OnInit {
   	this.fetchdata.get_json(myGlobal.hostphp+'/backend/addmatch/listTeam?nocache='+this.random).subscribe(
           teamInfo => {
             this.teamData = teamInfo
-            console.log(this.teamData);
           }        
         )
 
