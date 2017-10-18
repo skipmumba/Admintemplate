@@ -19,7 +19,7 @@
 				</button>
 			</div>
 		  	<div class="card-body">
-		  		<form ngNoForm action="{{hostphp}}/backend/managematch/update_match?time={{random}}" method="POST">
+		  		<form  ngNoForm action="{{hostphp}}/backend/managematch/update_match?time={{random}}" method="POST">
 		  			<div class="w-50 float-left">
 
 		  			<div (mouseleave)="_matchManage.searchShow1=false"> 
@@ -88,18 +88,34 @@
 					
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">สถานะ</span>
-					  	<input name="statusgame" type="text" class="form-control"  readonly>
+					  	<input  name="statusgame" type="text" class="form-control"  readonly>
+
+					</div>
+					<div *ngIf="!_matchManage.matchDetail.winner">
+						กำหนดผู้ชนะ {{_matchManage.matchDetail.winner}}
+						<select  class=" form-control" name="winner" [(ngModel)]="winner">
+						  	<option  value="0" selected >เลือก</option>
+						  	<option value="1">{{_matchManage.matchDetail.name1}}</option>
+						  	<option value="2">{{_matchManage.matchDetail.name2}}</option>
+						</select><br><br>					
+						<div class="alert alert-danger" role="alert">
+						  	หากกำหนดผู้ชนะแล้วจะไม่สามารถยกเลิกการแข่งขันได้
+						</div>
 					</div>
 
-					กำหนดผู้ชนะ 
-					<select class=" form-control" name="winner" [(ngModel)]="winner">
-					  	<option selected >เลือก</option>
-					  	<option value="1">{{_matchManage.matchDetail.name1}}</option>
-					  	<option value="2">{{_matchManage.matchDetail.name2}}</option>
-					</select><br><br>
-					<div class="alert alert-danger" role="alert">
-					  	หากกำหนดผู้ชนะแล้วจะไม่สามารถยกเลิกการแข่งขันได้
+					<div class="alert alert-info" role="alert" *ngIf="_matchManage.matchDetail.winner">
+							ทีมชนะ : 
+						  	<span *ngIf="_matchManage.matchDetail.winner == 1">
+						  		<input type="hidden" name="winner" value="1">
+						  		{{_matchManage.matchDetail.name1}}
+						  	</span>
+						  	<span *ngIf="_matchManage.matchDetail.winner == 2">
+						  		<input type="hidden" name="winner" value="2">
+						  		{{_matchManage.matchDetail.name2}}
+						  	</span>
 					</div>
+
+
 
 
 					<div>
