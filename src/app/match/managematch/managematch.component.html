@@ -88,7 +88,7 @@
 					
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">สถานะ</span>
-					  	<input  name="statusgame" type="text" class="form-control"  readonly>
+					  	<input  name="statusgame" type="text" class="form-control" [value]="_matchManage.matchDetail.statusgame" readonly>
 
 					</div>
 					<div *ngIf="!_matchManage.matchDetail.winner">
@@ -118,7 +118,7 @@
 
 
 
-					<div>
+					<div *ngIf="!_matchManage.matchDetail.winner">
 						<input type="submit" class="btn btn-success float-left" value="อัปเดต">
 						<button type="button" class="btn btn-danger float-right"><a target="_blank" href="{{_matchManage.hostphp}}/backend/managematch/del_match/{{_matchManage.matchDetail.matchID}}" style="color:#FFF">ยกเลิกการแข่งขัน</a></button>			
 					</div>
