@@ -5,13 +5,15 @@ import  { MatchComponent } from './match/match.component'
 import { PrivateloginComponent } from './privatelogin/privatelogin.component'
 import { SearchmatchComponent } from './searchmatch/searchmatch.component'
 import { WithdrawComponent } from './withdraw/withdraw.component'
+import { WalletsumComponent } from './walletsum/walletsum.component'
 
 const appRoutes: Routes = [
 	{path:'addgame',component:MatchComponent},
 	{path:'',component:MatchComponent},
 	{path:'kawsulabobadmin',component:PrivateloginComponent},
 	{path:'searchmatch',component:SearchmatchComponent},
-	{path:'withdraw',component:WithdrawComponent}
+	{path:'withdraw',component:WithdrawComponent},
+	{path:'wallet',component:WalletsumComponent},
 ];
 
 

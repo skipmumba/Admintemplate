@@ -1,0 +1,51 @@
+<div class="col-md-12">
+
+	<div class="row">
+		<div class="col-md-10">
+			<div class="input-group">
+				<span  class="input-group-addon" id="basic-addon1">ค้นหาโดย</span>
+			      <select [(ngModel)]="type" name="selecttype" class="form-control">
+			      <option  value="email">อีเมล</option>
+			      <option  value="phone">เบอร์</option>
+			      <option  value="fulldate">วัน/เดือน/ปี</option>
+			    </select>
+			    	<input type="text"  [(ngModel)]="textsearch" class="form-control w-50">
+			      <span class="input-group-btn">
+			        <button (click)="searchType()" class="btn btn-secondary" type="button">
+			        	ตกลง
+			        </button>
+			      </span>
+			      <button (click)="getWallet()" class="bg-info btn btn-secondary ml-5" type="button">
+			        	แสดงทั้งหมด
+			       </button>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="row">
+		<table class="table text-center table-striped">
+			<thead class="thead-dark ">
+			    	<tr>
+				     <th class="text-center" scope="col">#</th>
+				     <th class="text-center" scope="col">Email</th>
+				     <th class="text-center" scope="col">Phone</th>
+				     <th class="text-center" scope="col">Price</th>
+				     <th class="text-center" scope="col">Wallet code</th>
+				     <th class="text-center" scope="col">Date</th>
+			    	</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let wallet of listWallet;let count = index ">
+					<td>{{count+1}}</td>
+					<td>{{wallet.member_email}}</td>
+					<td>{{wallet.wallet_phone}}</td>
+					<td>{{wallet.wallet_code}}</td>
+					<td class="text-success">{{wallet.wallet_price}}</td>
+					<td>{{wallet.wallet_date | date :'d/M/y - HH:mm:ss a'}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
