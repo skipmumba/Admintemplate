@@ -1,0 +1,30 @@
+<div class="col-md-6">
+	<div class="row">
+		<table class="table text-center">
+			<thead class="thead-dark">
+			    	<tr>
+				     <th class="text-center" scope="col">#</th>
+				     <th class="text-center" scope="col">Email</th>
+				     <th class="text-center" scope="col">Time</th>
+				     <th class="text-center" scope="col">Price</th>
+				     <th class="text-center" scope="col">Status</th>
+				     <th class="text-center" scope="col">Manage</th>
+			    	</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let withdraw of listWithdraw;let count = index ">
+					<td>{{count+1}}</td>
+					<td>{{withdraw.member_email}}</td>
+					<td>{{withdraw.withdraw_time| date :'d/M/y - HH:mm:ss a'}}</td>
+					<td>{{withdraw.withdraw_price}} บาท</td>
+					<td *ngIf="withdraw.withdraw_status == 1">อนุมัติแล้ว</td>
+					<td *ngIf="withdraw.withdraw_status == 0">ยังไม่อนุมติ</td>
+					<td>
+						<button (click)="allowStatus(withdraw.withdraw_id,1)" type="button" class="btn btn-secondary">อนุมัติ</button>
+						<button (click)="allowStatus(withdraw.withdraw_id,0)" type="button" class="btn btn-secondary">ยกเลิก</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>		
+	</div>
+</div>

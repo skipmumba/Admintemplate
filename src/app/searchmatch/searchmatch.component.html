@@ -1,0 +1,47 @@
+<div class="col-md-7">
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">ค้นหาโดย</span>
+	      <select (click)="changeVal()" [(ngModel)]="datasearch" class="form-control" id="exampleFormControlSelect1">
+	      <option value="fulldate">วัน-เดือน-ปี</option>
+	      <option value="day">วัน</option>
+	      <option value="month">เดือน</option>
+	      <option value="year">ปี</option>
+	      <option value="team">ชื่อทีม</option>
+	      <option value="winner">ทีมชนะ</option>
+	      <option value="cat_name">หมวดเกม</option>
+	    </select>
+	    	<input [disabled]="disable" type="text" placeholder="ตัวอย่าง {{placeHoder}}" class="form-control w-50"  [(ngModel)]="textsearch">
+	      <span class="input-group-btn">
+	        <button class="btn btn-secondary" (click)="getsearch(datasearch,textsearch)" type="button">ตกลง</button>
+	      </span>
+	</div>
+</div>
+<div class="alert alert-info" role="alert" *ngIf="notFound">
+  	ไม่พบข้อมูล
+</div>
+<table class="table ">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>ทีม 1</th>
+      <th>ทีม 2</th>
+	    <th>หมวดเกม</th>
+      <th>เวลาการแข่งขัน</th>
+      <th>จัดการ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let match of getAllmatch;let i = index ">
+      <th scope="row">{{i+1}}</th>
+      <td>{{match.team_1}}</td>
+      <td>{{match.team_2}}</td>
+      <td>{{match.cat_name}}</td>
+      <td>{{match.day}} / {{match.month}} / {{match.year}} / {{match.time}}</td>
+      <td>
+          <button type="button" (click)="handleMatch(match.match_id)" class="btn btn-info">จัดการ</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<hr>

@@ -22,7 +22,9 @@ import { AddteamComponent } from './match/addteam/addteam.component';
 import { PrivateloginComponent } from './privatelogin/privatelogin.component';
 import { ManagematchComponent } from './match/managematch/managematch.component';
 
-import { MatchmanageService  } from './service/match/matchmanage.service'
+import { MatchmanageService  } from './service/match/matchmanage.service';
+import { SearchmatchComponent } from './searchmatch/searchmatch.component';
+import { WithdrawComponent } from './withdraw/withdraw.component'
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { MatchmanageService  } from './service/match/matchmanage.service'
     AddteamComponent,
     PrivateloginComponent,
     ManagematchComponent,
+    SearchmatchComponent,
+    WithdrawComponent,
   ],
   imports: [
     BrowserModule,AlertModule .forRoot(),BsDropdownModule.forRoot(),TabsModule.forRoot(),
