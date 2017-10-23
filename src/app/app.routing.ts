@@ -6,6 +6,7 @@ import { PrivateloginComponent } from './privatelogin/privatelogin.component'
 import { SearchmatchComponent } from './searchmatch/searchmatch.component'
 import { WithdrawComponent } from './withdraw/withdraw.component'
 import { WalletsumComponent } from './walletsum/walletsum.component'
+import { DashboardComponent} from './dashboard/dashboard.component'
 
 const appRoutes: Routes = [
 	{path:'addgame',component:MatchComponent},
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
 	{path:'searchmatch',component:SearchmatchComponent},
 	{path:'withdraw',component:WithdrawComponent},
 	{path:'wallet',component:WalletsumComponent},
+	{path:'dashboard',component:DashboardComponent},
 ];
 
 

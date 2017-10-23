@@ -1,0 +1,78 @@
+<div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{moneyall?.incomes}}</h3>
+
+              <p>เงินเข้าวันนี้</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-social-bitcoin"></i>
+            </div>
+            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>{{moneyall?.outcomes}}</h3>
+
+              <p>เงินออกวันนี้</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-social-bitcoin-outline"></i>
+            </div>
+            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{moneyall?.profits}}</h3>
+
+              <p>กำไรวันนี้</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{moneyall?.members}}</h3>
+              <p>สมาชิกใหม่วันนี้</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+          </div>
+        </div>
+        <!-- ./col -->
+</div>
+<div class="col-md-12">
+	<div class="row">
+		<div class="col-md-6">
+			<app-chart [myValue]="income"></app-chart>
+		</div>
+		<div class="col-md-6">
+			<app-chart [myValue]="outcome"></app-chart>
+		</div>
+	</div>
+</div>
+<div class="col-md-12">
+	<div class="row">
+		<div class="col-md-12">
+			<app-chart [myValue]="profit"></app-chart>
+		</div>
+	</div>
+</div>

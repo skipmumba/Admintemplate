@@ -25,7 +25,9 @@ import { ManagematchComponent } from './match/managematch/managematch.component'
 import { MatchmanageService  } from './service/match/matchmanage.service';
 import { SearchmatchComponent } from './searchmatch/searchmatch.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
-import { WalletsumComponent } from './walletsum/walletsum.component'
+import { WalletsumComponent } from './walletsum/walletsum.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartComponent } from './dashboard/chart/chart.component'
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { WalletsumComponent } from './walletsum/walletsum.component'
     SearchmatchComponent,
     WithdrawComponent,
     WalletsumComponent,
+    DashboardComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,AlertModule .forRoot(),BsDropdownModule.forRoot(),TabsModule.forRoot(),
