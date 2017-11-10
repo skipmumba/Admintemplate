@@ -4,9 +4,8 @@ import { AlertModule ,BsDropdownModule,TabsModule   } from 'ngx-bootstrap';
 import { FormsModule , ReactiveFormsModule}   from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from "@angular/common";
-
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { HttpModule }    from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
 
@@ -27,7 +26,8 @@ import { SearchmatchComponent } from './searchmatch/searchmatch.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { WalletsumComponent } from './walletsum/walletsum.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ChartComponent } from './dashboard/chart/chart.component'
+import { ChartComponent } from './dashboard/chart/chart.component';
+import { NewsComponent } from './news/news.component'
 
 
 @NgModule({
@@ -47,6 +47,7 @@ import { ChartComponent } from './dashboard/chart/chart.component'
     WalletsumComponent,
     DashboardComponent,
     ChartComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,AlertModule .forRoot(),BsDropdownModule.forRoot(),TabsModule.forRoot(),
@@ -54,9 +55,10 @@ import { ChartComponent } from './dashboard/chart/chart.component'
      ReactiveFormsModule,
      CommonModule,
      ChartsModule,
+     FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
      Ng2SearchPipeModule,
      FormsModule,
-	HttpModule,
+	    HttpModule,
   ],
   providers: [MatchmanageService],
   bootstrap: [AppComponent]

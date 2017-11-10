@@ -12,4 +12,9 @@ export class HttpService {
 	 	return this.http.get(url).map(
 	 		(response:Response) => response.json());
 	}
+	post_json(url,data)
+	{
+		return this.http.post(url,data).map(
+	 		(response:Response) => response.json());
+	}
 }

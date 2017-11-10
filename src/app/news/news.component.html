@@ -1,0 +1,61 @@
+<div class="row">
+	<div style="overflow: auto;" *ngIf="showEdit" class="wrap-edit-new fixed-top d-flex justify-content-center h-100">
+		<div class="edit-news my-4 py-4" style="width: 50%">
+			<div>
+				<div class="card">
+				  <h4 class="card-header">แก้ไข
+				  	<button type="button" class="close" aria-label="Close">
+					  <span (click)="showEdit = false" aria-hidden="true">&times;</span>
+					</button>
+				  </h4>
+				  <div class="card-body">
+					  	<input type="" class="form-control my-4"  placeholder="หัวข้อ" [(ngModel)]="editSub">
+					  	<textarea [froalaEditor]="options" class="form-control my-4" [(ngModel)]="editText" placeholder="เนื้อหา"></textarea>
+					  	<button  (click)="updateNew(editId)" type="button"  class="my-4 btn btn-success">อัปเดต</button>
+					  	<button  type="button" (click)="delNew(editId)"  class="float-right my-4 btn btn-danger">ลบ</button>
+				  </div>
+				</div>		
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col-md-6">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					<tr>
+						<th>ลำดับ</th>
+						<th>หัวข้อ</th>
+						<th>วันที่</th>
+						<th>แก้ไข</th>
+					</tr>
+					<tr *ngFor="let news of listnew;let i = index ">
+						<td class="align-middle">{{i+1}}</td>
+						<td  class="align-middle " >{{news.news_subject}}</td>
+						<td class="align-middle">{{news.news_date | date :'d/M/y - HH:mm:ss a'}}</td>
+						<td class="align-middle"><button style="cursor: pointer;" type="button"  class="my-4 btn btn-dark" (click)="editNews(news.news_id)">แก้ไข</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+				  <h4 class="card-header">เพิ่มข่าว</h4>
+				  <div class="card-body">
+				  	<input type="" class="form-control my-4" [(ngModel)]="subject" placeholder="หัวข้อ" name="">
+				  	<textarea [froalaEditor]="options" class="form-control my-4" [(ngModel)]="textarea" placeholder="เนื้อหา"></textarea>
+				  	<button (click)="sendNews()" type="button"  class="my-4 btn btn-default">ยืนยัน</button>
+				  </div>
+				</div>		
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+

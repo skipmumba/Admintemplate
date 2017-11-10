@@ -7,6 +7,7 @@ import { SearchmatchComponent } from './searchmatch/searchmatch.component'
 import { WithdrawComponent } from './withdraw/withdraw.component'
 import { WalletsumComponent } from './walletsum/walletsum.component'
 import { DashboardComponent} from './dashboard/dashboard.component'
+import { NewsComponent } from './news/news.component'
 
 const appRoutes: Routes = [
 	{path:'addgame',component:MatchComponent},
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
 	{path:'withdraw',component:WithdrawComponent},
 	{path:'wallet',component:WalletsumComponent},
 	{path:'dashboard',component:DashboardComponent},
+	{path:'news',component:NewsComponent},
 ];
 
 
