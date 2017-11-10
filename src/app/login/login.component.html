@@ -1,0 +1,9 @@
+<div class="input-group">
+  	<span class="input-group-addon" id="basic-addon1">username</span>
+  	<input [(ngModel)]="user" type="text" class="form-control" name="user">
+</div>
+<div class="input-group">
+  	<span class="input-group-addon" id="basic-addon1">password</span>
+  	<input [(ngModel)]="pass" type="text" class="form-control" name="pass">
+</div>
+<input type="submit" (click)="login()" class="btn btn-default" style="cursor:pointer;">
