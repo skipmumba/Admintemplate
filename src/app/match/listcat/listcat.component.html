@@ -16,7 +16,7 @@
 		    		<tr *ngFor="let catInfo of getCatdata;let i = index">
 		      		<th scope="row">{{i+1}}</th>
 		      		<td>{{catInfo.cat_name}}</td>
-		      		<td><a href="{{hostphp}}/backend/addmatch/del_cat/{{catInfo.cat_id}}"><button type="button" class="btn btn-info">ลบ</button></a></td>
+		      		<td><button (click)="delcat(catInfo.cat_id)" type="button" class="btn btn-info">ลบ</button></td>
 		    		</tr>
 		    	
 		  	</tbody>

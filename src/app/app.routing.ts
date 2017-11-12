@@ -29,16 +29,7 @@ const appRoutes:Routes = [
 	}
 ];
 
-// const appRoutes: Routes = [
-// 	{path:'addgame',component:MatchComponent},
-// 	{path:'',component:MatchComponent,canActivate: [ProtectGuard]},
-// 	{path:'kawsulabobadmin',component:PrivateloginComponent},
-// 	{path:'searchmatch',component:SearchmatchComponent},
-// 	{path:'withdraw',component:WithdrawComponent},
-// 	{path:'wallet',component:WalletsumComponent},
-// 	{path:'dashboard',component:DashboardComponent},
-// 	{path:'news',component:NewsComponent},
-// ];
+
 
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

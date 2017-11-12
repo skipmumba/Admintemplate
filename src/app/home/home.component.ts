@@ -9,6 +9,11 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  pr(e)
+  {
+  	console.log('this is parent');
+  }
+
   ngOnInit() {
   }
 
