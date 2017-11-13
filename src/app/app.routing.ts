@@ -10,6 +10,7 @@ import { DashboardComponent} from './dashboard/dashboard.component'
 import { NewsComponent } from './news/news.component'
 import { ProtectGuard } from './protect.guard'
 import { LoginComponent } from './login/login.component'
+import { TopupComponent } from './topup/topup.component'
 
 const appRoutes:Routes = [
 	{
@@ -22,6 +23,7 @@ const appRoutes:Routes = [
 			{path:'wallet',component:WalletsumComponent},
 			{path:'dashboard',component:DashboardComponent},
 			{path:'news',component:NewsComponent},
+			{path:'topup',component:TopupComponent},
 		]
 	},
 	{

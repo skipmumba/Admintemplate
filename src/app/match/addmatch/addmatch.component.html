@@ -1,6 +1,6 @@
 				
 				<div class="card">
-					<form ngNoForm autocomplete="off" action="{{hostphp}}/backend/addmatch/addgame" method="POST">
+					<!-- <form ngNoForm autocomplete="off" action="{{hostphp}}/backend/addmatch/addgame" method="POST"> -->
 					<h4 class="card-header">เพิ่มเกมแข่งขัน</h4>
 					<div class="card-body">
 
@@ -47,29 +47,29 @@
 
 						<div class="input-group">
 							<span class="input-group-addon">วัน</span>
-							<input name="day" type="text" class="form-control" placeholder="e.g. 1" >
+							<input [(ngModel)]="day" name="day" type="text" class="form-control" placeholder="e.g. 1" >
 							<span class="input-group-addon">เดือน </span>
-							<input  name="month" type="text" class="form-control" placeholder="e.g. 06" >
+							<input [(ngModel)]="month" name="month" type="text" class="form-control" placeholder="e.g. 06" >
 
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon">ปี </span>
-							<input name="year" type="text" class="form-control" placeholder="e.g. 2017" >
+							<input [(ngModel)]="year" name="year" type="text" class="form-control" placeholder="e.g. 2017" >
 							<span class="input-group-addon">เวลา </span>
-							<input name="time" type="text" class="form-control" placeholder="e.g. 15:30" >
+							<input [(ngModel)]="time" name="time" type="text" class="form-control" placeholder="e.g. 15:30" >
 
 						</div>
 						<div class="form-group">
 						  	<label for="exampleFormControlSelect1"><h4>หมวดเกม</h4></label>
-						  	<select class="form-control" name="catid">
+						  	<select [(ngModel)]="cat" class="form-control" name="catid">
 						    		<option value="{{catdata.cat_id}}*-*{{catdata.cat_name}}" 
 						    		*ngFor="let catdata of getCatdata;let i = index ">{{catdata.cat_name}}</option>
 						  	</select>
 						</div>
 
-						<input type="submit" class="btn btn-success btn-lg btn-block" value="ยืนยัน">
+						<input type="submit"  (click)="submitMatch()" class="btn btn-success btn-lg btn-block" value="ยืนยัน">
 					</div>
-					</form>
+					<!-- </form> -->
 				</div>
 		
 				

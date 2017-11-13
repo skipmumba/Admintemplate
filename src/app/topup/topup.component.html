@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-6">
+			
+			<table class="table">
+				<tr>
+					<th>order</th>
+					<th>username</th>
+					<th>phone</th>
+					<th>delete</th>
+				</tr>
+				<tr *ngFor="let topup of listTop;let i = index ">
+					<td>{{i+1}}</td>
+					<td>{{topup.user}}</td>
+					<td>0{{topup.phone}}</td>
+					<td>
+						<button (click)="delUser(topup.id)"  type="button" class="btn btn-danger">ลบ</button>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+
+		<div class="col-md-6">		
+			<div class="input-group">
+			  <span class="input-group-addon">username</span>
+			  <input type="text" class="form-control" [(ngModel)]="user">
+			</div>
+			<div class="input-group">
+			  <span class="input-group-addon">password</span>
+			  <input type="text" class="form-control" [(ngModel)]="pass">
+			</div>
+			<div class="input-group">
+			  <span class="input-group-addon" >phone</span>
+			  <input type="number" [(ngModel)]="phone" class="form-control" >
+			</div>
+			<button (click)="subMit()" type="button" class="btn btn-success">ยืนยัน</button>
+		</div>
+	</div>
+</div>

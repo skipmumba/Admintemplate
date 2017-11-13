@@ -31,7 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartComponent } from './dashboard/chart/chart.component';
 import { NewsComponent } from './news/news.component'
 import { CheckloginService } from './service/checklogin.service';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { TopupComponent } from './topup/topup.component'
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { LoginComponent } from './login/login.component'
     ChartComponent,
     NewsComponent,
     LoginComponent,
+    TopupComponent,
   ],
   imports: [
     BrowserModule,AlertModule .forRoot(),BsDropdownModule.forRoot(),TabsModule.forRoot(),
