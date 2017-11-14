@@ -1,23 +1,24 @@
 
 				<div class="card">
-					<form ngNoForm action="{{hostphp}}/backend/addmatch/addTeam" method="POST">
+					<!-- <form ngNoForm action="{{hostphp}}/backend/addmatch/addTeam" method="POST"> -->
+						
 					<h4 class="card-header">เพิ่มทีม</h4>
 					<div class="card-body">
 						<div class="input-group">
 							<span class="input-group-addon">ชื่อทีม</span>
-							<input name="Name" type="text" placeholder="ชื่อทีม" class="form-control" required>
+							<input name="Name" [(ngModel)]="teamName" type="text" placeholder="ชื่อทีม" class="form-control" required>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon">url รูปภาพ</span>
-							<input name="Image" type="text" placeholder="url" class="form-control"  required>
+							<input name="Image" [(ngModel)]="teamImg" type="text" placeholder="url" class="form-control"  required>
 						</div>
 
 
 
 						
 
-						<button type="submit" class="btn btn-success btn-lg btn-block">ยืนยัน</button>
+						<button type="submit" (click)="subMit()" class="btn btn-success btn-lg btn-block">ยืนยัน</button>
 					</div>
-					</form>
+				
 				</div>
 		

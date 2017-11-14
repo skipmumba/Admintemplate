@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as myGlobal from '../../global'
 import { HttpService } from '../../connect/http.service'
 import 'rxjs/add/operator/debounceTime';
+import { Router , NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-addmatch',
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class AddmatchComponent implements OnInit {
 
-  constructor(private fetchdata:HttpService) { }
+  constructor(private router:Router,private fetchdata:HttpService) { }
   hostphp = myGlobal.hostphp
   getCatdata : string
   mouseLeave = true;
@@ -24,6 +25,11 @@ export class AddmatchComponent implements OnInit {
   searchShow2 = false;
   numbers:any;
   random = new Date().getTime()+new Date().getMilliseconds()
+  day:any
+  month:any
+  time:any
+  year:any
+  cat:any
   selectTeam(name,img,nameModel)
   {
 
@@ -42,7 +48,19 @@ export class AddmatchComponent implements OnInit {
 
   }
 
-
+  submitMatch()
+  {
+    let split = this.cat.split("*-*")
+    let obj = {
+        team1:this.nameTeam1,team2:this.nameTeam2,
+        pic1:this.picTeam1,pic2:this.picTeam2,
+        day:this.day,month:this.month,year:this.year,time:this.time,
+        catid:split[0],catname:split[1]
+    }
+    this.fetchdata.post_json(myGlobal.hostphp+'/backend/addmatch/addgame',obj).subscribe(data => {
+       this.router.navigate(['/dashboard']);
+    })
+  }
 
 
 

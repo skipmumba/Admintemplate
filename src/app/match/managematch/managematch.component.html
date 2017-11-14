@@ -19,7 +19,7 @@
 				</button>
 			</div>
 		  	<div class="card-body">
-		  		<form  ngNoForm action="{{hostphp}}/backend/managematch/update_match?time={{random}}" method="POST">
+		  		<!-- <form  ngNoForm action="{{hostphp}}/backend/managematch/update_match?time={{random}}" method="POST"> -->
 		  			<div class="w-50 float-left">
 
 		  			<div (mouseleave)="_matchManage.searchShow1=false"> 
@@ -92,7 +92,7 @@
 
 					</div>
 					<div *ngIf="!_matchManage.matchDetail.winner">
-						กำหนดผู้ชนะ {{_matchManage.matchDetail.winner}}
+						กำหนดผู้ชนะ 
 						<select  class=" form-control" name="winner" [(ngModel)]="winner">
 						  	<option  value="0" selected >เลือก</option>
 						  	<option value="1">{{_matchManage.matchDetail.name1}}</option>
@@ -119,12 +119,14 @@
 
 
 					<div *ngIf="!_matchManage.matchDetail.winner">
-						<input type="submit" class="btn btn-success float-left" value="อัปเดต">
-						<button type="button" class="btn btn-danger float-right"><a target="_blank" href="{{_matchManage.hostphp}}/backend/managematch/del_match/{{_matchManage.matchDetail.matchID}}" style="color:#FFF">ยกเลิกการแข่งขัน</a></button>			
+						<input type="submit" 
+						(click)="upDate(_matchManage.matchDetail.catID,_matchManage.matchDetail.day,_matchManage.matchDetail.month,_matchManage.matchDetail.year,_matchManage.matchDetail.time,winner,_matchManage.matchDetail.matchID)" 
+						class="btn btn-success float-left" value="อัปเดต">
+						<button (click)="del(_matchManage.matchDetail.matchID)" type="button" class="btn btn-danger float-right">ยกเลิกการแข่งขัน</button>			
 					</div>
 		  		
 		  			</div>
-		   		</form>	
+		   		<!-- </form>	 -->
 		  		<div class="w-50 float-right">
 		  			<div class="subject-donut">	  				
 		  				จำนวนคน

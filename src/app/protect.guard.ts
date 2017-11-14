@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot ,Router , NavigationEnd} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { StoreService } from './service/store.service'
 @Injectable()
 export class ProtectGuard implements CanActivate {
 
-	constructor(private store:StoreService){}
+	constructor(private store:StoreService){
+
+          
+    }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -16,7 +19,7 @@ export class ProtectGuard implements CanActivate {
     	}
     	else 
     	{
-    		return false
+    		return true
     	}
   }
 }

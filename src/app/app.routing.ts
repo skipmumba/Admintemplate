@@ -10,6 +10,7 @@ import { DashboardComponent} from './dashboard/dashboard.component'
 import { NewsComponent } from './news/news.component'
 import { ProtectGuard } from './protect.guard'
 import { LoginComponent } from './login/login.component'
+import { TopupComponent } from './topup/topup.component'
 
 const appRoutes:Routes = [
 	{
@@ -22,6 +23,7 @@ const appRoutes:Routes = [
 			{path:'wallet',component:WalletsumComponent},
 			{path:'dashboard',component:DashboardComponent},
 			{path:'news',component:NewsComponent},
+			{path:'topup',component:TopupComponent},
 		]
 	},
 	{
@@ -29,16 +31,7 @@ const appRoutes:Routes = [
 	}
 ];
 
-// const appRoutes: Routes = [
-// 	{path:'addgame',component:MatchComponent},
-// 	{path:'',component:MatchComponent,canActivate: [ProtectGuard]},
-// 	{path:'kawsulabobadmin',component:PrivateloginComponent},
-// 	{path:'searchmatch',component:SearchmatchComponent},
-// 	{path:'withdraw',component:WithdrawComponent},
-// 	{path:'wallet',component:WalletsumComponent},
-// 	{path:'dashboard',component:DashboardComponent},
-// 	{path:'news',component:NewsComponent},
-// ];
+
 
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
