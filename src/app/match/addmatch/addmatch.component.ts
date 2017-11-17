@@ -25,6 +25,7 @@ export class AddmatchComponent implements OnInit {
   searchShow2 = false;
   numbers:any;
   random = new Date().getTime()+new Date().getMilliseconds()
+  round:any = 0
   day:any
   month:any
   time:any
@@ -54,6 +55,7 @@ export class AddmatchComponent implements OnInit {
     let obj = {
         team1:this.nameTeam1,team2:this.nameTeam2,
         pic1:this.picTeam1,pic2:this.picTeam2,
+        round:this.round,
         day:this.day,month:this.month,year:this.year,time:this.time,
         catid:split[0],catname:split[1]
     }

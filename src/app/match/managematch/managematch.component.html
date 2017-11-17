@@ -69,14 +69,17 @@
 						</option>
 					</select><br>
 					<div class="input-group">
-						<span class="input-group-addon">วัน</span>
-						<input name="day" type="text" class="form-control" placeholder="e.g. 1" 
-						[(ngModel)]="_matchManage.matchDetail.day">
-						<span class="input-group-addon">เดือน </span>
-						<input  name="month" type="text" class="form-control" placeholder="e.g. 06"
-						[(ngModel)]="_matchManage.matchDetail.month">
+						<span class="input-group-addon">รอบ</span>
+						<select name="round" [(ngModel)]="_matchManage.matchDetail.round"  class="form-control">
+							<option value="0" [selected]="0 == _matchManage.matchDetail.round">ไม่มี</option>
+							<option value="1" [selected]="1 == _matchManage.matchDetail.round">1</option>
+							<option value="2" [selected]="2 == _matchManage.matchDetail.round">2</option>
+						</select>
 					</div>
 					
+					
+					
+				
 					<div class="input-group">
 						<span class="input-group-addon">ปี </span>
 						<input name="year" type="text" [(ngModel)]="_matchManage.matchDetail.year" class="form-control" 
@@ -120,7 +123,7 @@
 
 					<div *ngIf="!_matchManage.matchDetail.winner">
 						<input type="submit" 
-						(click)="upDate(_matchManage.matchDetail.catID,_matchManage.matchDetail.day,_matchManage.matchDetail.month,_matchManage.matchDetail.year,_matchManage.matchDetail.time,winner,_matchManage.matchDetail.matchID)" 
+						(click)="upDate(_matchManage.matchDetail.catID,_matchManage.matchDetail.day,_matchManage.matchDetail.month,_matchManage.matchDetail.year,_matchManage.matchDetail.time,winner,_matchManage.matchDetail.matchID,_matchManage.matchDetail.round)" 
 						class="btn btn-success float-left" value="อัปเดต">
 						<button (click)="del(_matchManage.matchDetail.matchID)" type="button" class="btn btn-danger float-right">ยกเลิกการแข่งขัน</button>			
 					</div>

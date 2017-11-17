@@ -19,12 +19,13 @@ export class ManagematchComponent implements OnInit {
   	getCatdata
   	catName
 
-  upDate(catid,day,month,year,time,winer,matchid)
+  upDate(catid,day,month,year,time,winer,matchid,round)
   {
     let obj = {
       team1:this._matchManage.nameTeam1,team2:this._matchManage.nameTeam2,
       pic1:this._matchManage.picTeam1,pic2:this._matchManage.picTeam2,
-      catid:catid,day:day,month:month,year:year,time:time,winner:winer,matchid:matchid
+      catid:catid,day:day,month:month,year:year,time:time,winner:winer,matchid:matchid,
+      round:round
     }
     this.fetchdata.post_json(myGlobal.hostphp+'/backend/managematch/update_match',obj).subscribe(data =>{
       this._matchManage.show = false
