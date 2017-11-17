@@ -77,7 +77,14 @@
 						</select>
 					</div>
 					
-					
+					<div class="input-group">
+						<span class="input-group-addon">วัน </span>
+						<input name="day" type="text" [(ngModel)]="_matchManage.matchDetail.day" class="form-control" 
+						placeholder="01" >
+						<span class="input-group-addon">เดือน </span>
+						<input name="month" type="text" class="form-control" placeholder="06" 
+						[(ngModel)]="_matchManage.matchDetail.month">
+					</div>
 					
 				
 					<div class="input-group">
