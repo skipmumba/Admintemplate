@@ -59,9 +59,10 @@
 
 		  			</div>
 		  			<br>
-					หมวดเกม
-					<select class="custom-select" #t name="catID" 
-					[ngModel]="_matchManage.matchDetail.catID">
+					หมวดเกม{{_matchManage.matchDetail.catID}}
+					<select class="custom-select"  name="catID" 
+
+					[(ngModel)]="_matchManage.matchDetail.catID">
 					  	<option  value="{{catdata.cat_id}}" 
 						    		*ngFor="let catdata of getCatdata;" 
 						    		[selected]="catdata.cat_id == _matchManage.matchDetail.catID" >
